@@ -1,0 +1,10 @@
+<resources>
+    <string name="cancel">Cancel</string>
+    <string name="crash_log">Crash Log</string>
+    <string name="crash_reproduce_steps">Steps to reproduce crash (Optional)</string>
+    <string name="lib_name">Crash Reporter</string>
+    <string name="lib_summary">A real-time crash monitor &amp; reporting library for Android</string>
+    <string name="report">Report</string>
+    <string name="request_message">%s is crashed. Inorder to help the developer to fix this issue, please consider reporting this crash log to</string>
+    <string name="source_code">Source Code: %s</string>
+</resources>

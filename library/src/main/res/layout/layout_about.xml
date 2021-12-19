@@ -1,0 +1,59 @@
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    android:gravity="center" >
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp" >
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:src="@android:drawable/stat_notify_error"
+            android:layout_gravity="center"
+            android:tint="@color/blue" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/app_title"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:textColor="@color/blue"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:textSize="17sp"
+            android:padding="5dp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Copyright: © 2021-2022, sunilpaulmathew"
+            android:textStyle="bold|italic"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/lib_summary"
+            android:textColor="@color/blue"
+            android:textStyle="bold|italic"
+            android:layout_margin="15dp"
+            android:textSize="15sp" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/source"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textIsSelectable="true"
+            android:textStyle="bold|italic"
+            android:layout_margin="5dp"
+            android:gravity="start"
+            android:textSize="13sp" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+</androidx.core.widget.NestedScrollView>

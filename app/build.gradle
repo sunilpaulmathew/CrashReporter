@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.application'
+}
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "in.sunilpaulmathew.common.crashreporter.demo"
+        minSdk 23
+        targetSdk 31
+        versionCode 1
+        versionName "v0.1"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation (project(":library"))
+    implementation 'com.google.android.material:material:1.4.0'
+}
