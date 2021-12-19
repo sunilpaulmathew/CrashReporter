@@ -6,6 +6,8 @@
 
 A real-time crash monitor & reporting library for Android
 
+![](demo/animation.gif)
+
 ## Download
 
 Step 1: Add it in your root-level build.gradle at the end of repositories:
