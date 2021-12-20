@@ -28,11 +28,21 @@ dependencies {
 ```
 *Please Note: **Tag** should be replaced with the latest **[commit id](https://github.com/sunilpaulmathew/CrashReporter/commits/master)**.*
 
-Step 2: Initialize library after the setContentView of main activity;
+Step 3: Initialize library after the setContentView of main activity;
 ```
-new CrashReporter(contactDetails, this).initialize();
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        
+        ...
+        new CrashReporter("E-Mail: smartpack.org@gmail.com", this).initialize();
+        ...
+        
+        });
+    }
 ```
 
 *Please Note: **contactDetails** should be a **String** containing the details to reach the developer (such as E-Mail, Telegram id, etc.) of app.*
 
-The library will record and prompt to share the log after the occurrence of any crash, as long as the activity in which the library initialized is live.
+The library will record and prompt to share the log into **contactDetails** after the occurrence of any crash, as long as the activity in which the library initialized is live.
