@@ -3,12 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 33
+    buildToolsVersion "30.0.3"
+    namespace 'in.sunilpaulmathew.common.crashreporter.demo'
 
     defaultConfig {
         applicationId "in.sunilpaulmathew.common.crashreporter.demo"
         minSdk 23
-        targetSdk 31
+        targetSdk 33
         versionCode 1
         versionName "v0.1"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -24,5 +26,5 @@ android {
 
 dependencies {
     implementation (project(":library"))
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.9.0'
 }

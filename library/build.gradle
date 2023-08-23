@@ -6,6 +6,7 @@ plugins {
 android {
     compileSdkVersion 31
     buildToolsVersion "30.0.3"
+    namespace 'in.sunilpaulmathew.crashreporter'
 
     defaultConfig {
         consumerProguardFiles("proguard-rules.pro")
@@ -13,7 +14,7 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'com.google.android.material:material:1.9.0'
 }
 
 project.afterEvaluate {

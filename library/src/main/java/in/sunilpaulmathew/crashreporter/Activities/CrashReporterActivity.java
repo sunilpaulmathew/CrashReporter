@@ -61,7 +61,7 @@ public class CrashReporterActivity extends AppCompatActivity {
             MaterialTextView mAppTile = aboutLayout.findViewById(R.id.app_title);
             MaterialTextView mSource = aboutLayout.findViewById(R.id.source);
 
-            mAppTile.setText(getString(R.string.lib_name));
+            mAppTile.setText(getString(R.string.library_name));
             mSource.setText(getString(R.string.source_code, "https://github.com/sunilpaulmathew/CrashReporter"));
 
             mSource.setOnClickListener(v -> {
