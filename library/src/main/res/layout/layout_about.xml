@@ -15,14 +15,12 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:src="@android:drawable/stat_notify_error"
-            android:layout_gravity="center"
-            android:tint="@color/blue" />
+            android:layout_gravity="center" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/app_title"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:textColor="@color/blue"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="17sp"
@@ -31,7 +29,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Copyright: © 2021-2022, sunilpaulmathew"
+            android:text="Copyright: © 2024-2025, sunilpaulmathew"
             android:textStyle="bold|italic"
             android:gravity="center"
             android:textSize="13sp" />
@@ -41,7 +39,6 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="@string/library_summary"
-            android:textColor="@color/blue"
             android:textStyle="bold|italic"
             android:layout_margin="15dp"
             android:textSize="15sp" />
