@@ -1,4 +1,5 @@
 <androidx.appcompat.widget.LinearLayoutCompat
+    android:id="@+id/layout_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
@@ -18,6 +19,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="start|center_vertical"
+                    android:tint="?attr/colorPrimary"
                     android:background="@null"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/ic_back"
@@ -29,6 +31,7 @@
                     android:gravity="center_vertical"
                     android:layout_marginStart="30dp"
                     android:text="@string/library_name"
+                    android:textColor="?attr/colorPrimary"
                     android:textStyle="bold"
                     android:textSize="20sp"
                     android:padding="10dp" />
@@ -38,6 +41,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="end|center_vertical"
+                    android:tint="?attr/colorPrimary"
                     android:layout_marginEnd="10dp"
                     android:src="@drawable/ic_info"
                     android:background="@null"
@@ -66,6 +70,7 @@
                             android:id="@+id/contact_details"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:textColor="?attr/colorPrimary"
                             android:textStyle="bold|italic"
                             android:layout_gravity="center"
                             android:textIsSelectable="true"
@@ -86,6 +91,7 @@
                                         <com.google.android.material.textview.MaterialTextView
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
+                                            android:textColor="?attr/colorPrimary"
                                             android:text="@string/crash_log"
                                             android:layout_gravity="center"
                                             android:layout_margin="5dp"
@@ -125,6 +131,7 @@
                                             android:layout_width="wrap_content"
                                             android:layout_height="wrap_content"
                                             android:text="@string/crash_reproduce_steps"
+                                            android:textColor="?attr/colorPrimary"
                                             android:layout_margin="10dp"
                                             android:textStyle="bold"
                                             android:gravity="start"
@@ -142,47 +149,48 @@
                         </com.google.android.material.card.MaterialCardView>
 
                         <androidx.appcompat.widget.LinearLayoutCompat
-                            android:layout_width="match_parent"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:orientation="horizontal"
                             android:layout_gravity="center"
                             android:gravity="center" >
 
-                                <com.google.android.material.card.MaterialCardView
+                                <com.google.android.material.button.MaterialButton
                                     android:id="@+id/cancel_button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    app:cardCornerRadius="15dp" >
+                                    style="?attr/materialIconButtonFilledTonalStyle"
+                                    android:textColor="?attr/colorPrimary"
+                                    app:iconTint="?attr/colorPrimary"
+                                    android:layout_marginStart="10dp"
+                                    app:icon="@drawable/ic_cancel"
+                                    android:text="@string/cancel"
+                                    app:iconGravity="textEnd"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    app:iconPadding="10dp"
+                                    android:padding="10dp" />
 
-                                        <com.google.android.material.textview.MaterialTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textStyle="bold|italic"
-                                            android:text="@string/cancel"
-                                            android:layout_margin="10dp"
-                                            android:clickable="false"
-                                            android:gravity="start"
-                                            android:textSize="17sp" />
-                                </com.google.android.material.card.MaterialCardView>
+                                <View
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1" />
 
-                                <com.google.android.material.card.MaterialCardView
+                                <com.google.android.material.button.MaterialButton
                                     android:id="@+id/report_button"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:layout_margin="10dp"
-                                    app:cardCornerRadius="15dp" >
-
-                                        <com.google.android.material.textview.MaterialTextView
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:textStyle="bold|italic"
-                                            android:text="@string/report"
-                                            android:layout_margin="10dp"
-                                            android:clickable="false"
-                                            android:gravity="start"
-                                            android:textSize="17sp" />
-                                </com.google.android.material.card.MaterialCardView>
+                                    style="?attr/materialIconButtonFilledTonalStyle"
+                                    android:textColor="?attr/colorPrimary"
+                                    app:iconTint="?attr/colorPrimary"
+                                    android:layout_marginEnd="10dp"
+                                    app:icon="@drawable/ic_share"
+                                    android:text="@string/report"
+                                    app:iconGravity="textStart"
+                                    android:textStyle="bold"
+                                    android:textSize="15sp"
+                                    app:iconPadding="10dp"
+                                    android:padding="10dp" />
                         </androidx.appcompat.widget.LinearLayoutCompat>
                 </androidx.appcompat.widget.LinearLayoutCompat>
         </androidx.core.widget.NestedScrollView>

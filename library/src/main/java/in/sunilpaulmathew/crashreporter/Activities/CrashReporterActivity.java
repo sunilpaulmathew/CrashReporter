@@ -13,8 +13,11 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
-import com.google.android.material.card.MaterialCardView;
+import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 
@@ -35,11 +38,24 @@ public class CrashReporterActivity extends AppCompatActivity {
         AppCompatEditText mCrashSteps = findViewById(R.id.crash_steps);
         AppCompatImageButton mBackButton = findViewById(R.id.back);
         AppCompatImageButton mInfoButton = findViewById(R.id.info);
-        MaterialCardView mCancelButton = findViewById(R.id.cancel_button);
-        MaterialCardView mReportButton = findViewById(R.id.report_button);
+        MaterialButton mCancelButton = findViewById(R.id.cancel_button);
+        MaterialButton mReportButton = findViewById(R.id.report_button);
         MaterialTextView mRequestMessage = findViewById(R.id.request_message);
         MaterialTextView mContacts = findViewById(R.id.contact_details);
         MaterialTextView mCrashLog = findViewById(R.id.crash_log);
+
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.layout_root), (view, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+
+            view.setPadding(
+                    systemBars.left,
+                    systemBars.top,
+                    systemBars.right,
+                    systemBars.bottom
+            );
+
+            return insets;
+        });
 
         mRequestMessage.setText(getString(R.string.request_message, PackageUtils.getAppName(this)));
 

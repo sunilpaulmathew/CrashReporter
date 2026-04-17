@@ -21,7 +21,7 @@ public class PackageUtils {
     }
 
     public static CharSequence getAppName(Context context) {
-        return context.getPackageManager().getApplicationLabel(getApplicationInfo(context));
+        return context.getPackageManager().getApplicationLabel(Objects.requireNonNull(getApplicationInfo(context)));
     }
 
     private static PackageInfo getPackageInfo(Context context) {

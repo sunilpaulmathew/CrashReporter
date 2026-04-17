@@ -6,5 +6,5 @@
     <string name="library_summary">A real-time crash monitor &amp; reporting library for Android</string>
     <string name="report">Report</string>
     <string name="request_message">%s is crashed. Inorder to help the developer to fix this issue, please consider reporting this crash log to</string>
-    <string name="source_code">Source Code: %s</string>
+    <string name="source_code">Source Code\n%s</string>
 </resources>

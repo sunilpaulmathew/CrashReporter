@@ -15,12 +15,14 @@
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:src="@android:drawable/stat_notify_error"
+            android:tint="?attr/colorPrimary"
             android:layout_gravity="center" />
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/app_title"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
+            android:textColor="?attr/colorPrimary"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="17sp"
@@ -29,7 +31,7 @@
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Copyright: © 2024-2025, sunilpaulmathew"
+            android:text="Copyright: © 2021-2026, sunilpaulmathew"
             android:textStyle="bold|italic"
             android:gravity="center"
             android:textSize="13sp" />
@@ -47,10 +49,11 @@
             android:id="@+id/source"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:textColor="?attr/colorSecondary"
             android:textIsSelectable="true"
             android:textStyle="bold|italic"
             android:layout_margin="5dp"
-            android:gravity="start"
+            android:gravity="center"
             android:textSize="13sp" />
     </androidx.appcompat.widget.LinearLayoutCompat>
 </androidx.core.widget.NestedScrollView>

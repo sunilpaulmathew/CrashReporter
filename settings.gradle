@@ -6,5 +6,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Crash Reporter Demo"
-include ':app'
-include ':library'
+include(
+        ":app",
+        ":library"
+)
