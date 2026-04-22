@@ -74,11 +74,10 @@ public class CrashReporterActivity extends AppCompatActivity {
         mInfoButton.setOnClickListener(view -> {
             LayoutInflater mLayoutInflator = LayoutInflater.from(this);
             View aboutLayout = mLayoutInflator.inflate(R.layout.layout_about, null);
-            MaterialTextView mAppTile = aboutLayout.findViewById(R.id.app_title);
-            MaterialTextView mSource = aboutLayout.findViewById(R.id.source);
+            MaterialButton mAppTile = aboutLayout.findViewById(R.id.app_title);
+            MaterialButton mSource = aboutLayout.findViewById(R.id.source);
 
             mAppTile.setText(getString(R.string.library_name));
-            mSource.setText(getString(R.string.source_code, "https://github.com/sunilpaulmathew/CrashReporter"));
 
             mSource.setOnClickListener(v -> {
                 try {
