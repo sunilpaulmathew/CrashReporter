@@ -1,7 +1,7 @@
 <resources>
     <string name="cancel">Cancel</string>
     <string name="crash_log">Crash Log</string>
-    <string name="crash_reproduce_steps">Steps to reproduce crash (Optional)</string>
+    <string name="crash_reproduce_steps">Steps to reproduce this crash</string>
     <string name="library_name">Crash Reporter</string>
     <string name="library_summary">A real-time crash monitor &amp; reporting library for Android</string>
     <string name="report">Report</string>

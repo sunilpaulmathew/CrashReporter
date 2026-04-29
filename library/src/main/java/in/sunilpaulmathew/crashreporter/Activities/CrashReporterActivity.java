@@ -1,17 +1,20 @@
 package in.sunilpaulmathew.crashreporter.Activities;
 
 import android.content.ActivityNotFoundException;
+import android.content.ClipData;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatEditText;
 import androidx.appcompat.widget.AppCompatImageButton;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -19,6 +22,7 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textview.MaterialTextView;
 
 import in.sunilpaulmathew.crashreporter.R;
@@ -35,9 +39,9 @@ public class CrashReporterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crash_reporter);
 
-        AppCompatEditText mCrashSteps = findViewById(R.id.crash_steps);
-        AppCompatImageButton mBackButton = findViewById(R.id.back);
+        AppCompatImageButton mCopyButton = findViewById(R.id.copy);
         AppCompatImageButton mInfoButton = findViewById(R.id.info);
+        MaterialAutoCompleteTextView mCrashSteps = findViewById(R.id.crash_steps);
         MaterialButton mCancelButton = findViewById(R.id.cancel_button);
         MaterialButton mReportButton = findViewById(R.id.report_button);
         MaterialTextView mRequestMessage = findViewById(R.id.request_message);
@@ -64,12 +68,25 @@ public class CrashReporterActivity extends AppCompatActivity {
         }
 
         if (getIntent().getStringExtra("crashLog") != null) {
-            mCrashLog.setText(getIntent().getStringExtra("crashLog"));
+            String mCrashText = "App Name: " + PackageUtils.getAppName(this) +
+                    "\nPackage Name: " + getPackageName() + "\nApp Version: " + PackageUtils.getVersionName(this) +
+                    "\nSDK Version: " + Build.VERSION.SDK_INT + "\n\n==========\n Stacktrace\n==========\n\n" + getIntent().getStringExtra("crashLog");
+            mCrashLog.setText(mCrashText);
         }
 
-        mBackButton.setOnClickListener(view -> finish());
-
         mCancelButton.setOnClickListener(view -> finish());
+
+        mCopyButton.setOnClickListener(v -> {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+                ClipData clip = ClipData.newPlainText("Copied to clipboard", mCrashLog.getText() +
+                        "\n\nSteps to reproduce this issue: " + mCrashSteps.getText());
+                clipboard.setPrimaryClip(clip);
+                Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "This feature requires Android API level 11 or more", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         mInfoButton.setOnClickListener(view -> {
             LayoutInflater mLayoutInflator = LayoutInflater.from(this);
@@ -104,10 +121,8 @@ public class CrashReporterActivity extends AppCompatActivity {
             Intent share_log = new Intent();
             share_log.setAction(Intent.ACTION_SEND);
             share_log.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.crash_log) + "/" + PackageUtils.getAppName(this));
-            share_log.putExtra(Intent.EXTRA_TEXT, "App Name: " + PackageUtils.getAppName(this) +
-                    "\nPackage Name: " + getPackageName() + "\nApp Version: " + PackageUtils.getVersionName(this) +
-                    "\nSDK Version: " + Build.VERSION.SDK_INT + "\n\nCrash Report\n\n" + mCrashLog.getText() +
-                    "\n\nSteps to reproduce the issue: " + mSteps);
+            share_log.putExtra(Intent.EXTRA_TEXT, mCrashLog.getText() +
+                    "\n\nSteps to reproduce this issue: " + mSteps);
             share_log.setType("text/plain");
             Intent shareIntent = Intent.createChooser(share_log, "Share");
             startActivity(shareIntent);
