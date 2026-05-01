@@ -1,15 +1,11 @@
 package in.sunilpaulmathew.crashreporter.Activities;
 
-import android.content.ActivityNotFoundException;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -21,10 +17,10 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textview.MaterialTextView;
 
+import in.sunilpaulmathew.crashreporter.Dialog.InfoDialog;
 import in.sunilpaulmathew.crashreporter.R;
 import in.sunilpaulmathew.crashreporter.Utils.PackageUtils;
 
@@ -88,29 +84,7 @@ public class CrashReporterActivity extends AppCompatActivity {
             }
         });
 
-        mInfoButton.setOnClickListener(view -> {
-            LayoutInflater mLayoutInflator = LayoutInflater.from(this);
-            View aboutLayout = mLayoutInflator.inflate(R.layout.layout_about, null);
-            MaterialButton mAppTile = aboutLayout.findViewById(R.id.app_title);
-            MaterialButton mSource = aboutLayout.findViewById(R.id.source);
-
-            mAppTile.setText(getString(R.string.library_name));
-
-            mSource.setOnClickListener(v -> {
-                try {
-                    Intent i = new Intent(Intent.ACTION_VIEW);
-                    i.setData(Uri.parse("https://github.com/sunilpaulmathew/CrashReporter"));
-                    startActivity(i);
-                } catch (ActivityNotFoundException ignored) {
-                }
-            });
-
-            new MaterialAlertDialogBuilder(this)
-                    .setIcon(R.drawable.ic_info).setView(aboutLayout)
-                    .setCancelable(false)
-                    .setPositiveButton(getString(R.string.cancel), (dialogInterface, i) -> {
-                    }).show();
-        });
+        mInfoButton.setOnClickListener(view -> new InfoDialog(view.getContext()));
 
         mReportButton.setOnClickListener(view -> {
             String mSteps = "";
