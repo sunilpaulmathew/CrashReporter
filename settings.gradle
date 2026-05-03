@@ -5,8 +5,7 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
-rootProject.name = "Crash Reporter Demo"
+rootProject.name = "Crash Reporter"
 include(
-        ":app",
         ":library"
 )
