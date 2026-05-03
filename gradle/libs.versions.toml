@@ -1,0 +1,13 @@
+[versions]
+agpVersion = "9.2.0"
+annotationVersion = "1.10.0"
+apksigVersion = "9.2.0"
+crashreporterVersion = "9a98b699fb"
+materialVersion = "1.13.0"
+
+[libraries]
+annotation = { module = "androidx.annotation:annotation", version.ref = "annotationVersion" }
+apksig = { module = "com.android.tools.build:apksig", version.ref = "apksigVersion" }
+crashReporter = { module = "com.github.sunilpaulmathew:CrashReporter", version.ref = "crashreporterVersion" }
+gradle = { module = "com.android.tools.build:gradle", version.ref = "agpVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
